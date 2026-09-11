@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default: Fear (Blue) Theme */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 210 100% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Element-specific glow */
+    --glow-color: 210 100% 50%;
+    --glow-soft: 0 0 40px hsl(var(--glow-color) / 0.3);
+    --glow-strong: 0 0 60px hsl(var(--glow-color) / 0.5);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--background)));
+    --gradient-radial: radial-gradient(ellipse at center, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+  }
+
+  /* Knowledge Theme - Gold */
+  .theme-knowledge {
+    --background: 40 20% 6%;
+    --foreground: 45 30% 95%;
+    --card: 40 25% 8%;
+    --card-foreground: 45 30% 95%;
+    --popover: 40 25% 8%;
+    --popover-foreground: 45 30% 95%;
+    --primary: 45 90% 50%;
+    --primary-foreground: 40 20% 8%;
+    --secondary: 40 20% 14%;
+    --secondary-foreground: 45 30% 90%;
+    --muted: 40 20% 12%;
+    --muted-foreground: 40 20% 55%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 40 20% 8%;
+    --border: 40 25% 18%;
+    --input: 40 25% 18%;
+    --ring: 45 90% 50%;
+    --glow-color: 45 90% 50%;
+  }
+
+  /* Death Theme - Gray/White/Black */
+  .theme-death {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 92%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 92%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 0 0% 85%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 0% 8%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 85%;
+    --glow-color: 0 0% 85%;
+  }
+
+  /* Fear Theme - Blue (Default) */
+  .theme-fear {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 90%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 210 100% 60%;
+    --accent-foreground: 210 40% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 210 100% 50%;
+    --glow-color: 210 100% 50%;
+  }
+
+  /* Energy Theme - Purple */
+  .theme-energy {
+    --background: 270 40% 6%;
+    --foreground: 270 20% 96%;
+    --card: 270 40% 8%;
+    --card-foreground: 270 20% 96%;
+    --popover: 270 40% 8%;
+    --popover-foreground: 270 20% 96%;
+    --primary: 270 100% 60%;
+    --primary-foreground: 270 20% 98%;
+    --secondary: 270 30% 14%;
+    --secondary-foreground: 270 20% 90%;
+    --muted: 270 30% 12%;
+    --muted-foreground: 270 20% 55%;
+    --accent: 280 100% 70%;
+    --accent-foreground: 270 20% 98%;
+    --border: 270 30% 18%;
+    --input: 270 30% 18%;
+    --ring: 270 100% 60%;
+    --glow-color: 270 100% 60%;
+  }
+
+  /* Blood Theme - Red */
+  .theme-blood {
+    --background: 0 40% 6%;
+    --foreground: 0 20% 96%;
+    --card: 0 40% 8%;
+    --card-foreground: 0 20% 96%;
+    --popover: 0 40% 8%;
+    --popover-foreground: 0 20% 96%;
+    --primary: 0 85% 50%;
+    --primary-foreground: 0 20% 98%;
+    --secondary: 0 30% 14%;
+    --secondary-foreground: 0 20% 90%;
+    --muted: 0 30% 12%;
+    --muted-foreground: 0 20% 55%;
+    --accent: 355 100% 60%;
+    --accent-foreground: 0 20% 98%;
+    --border: 0 30% 18%;
+    --input: 0 30% 18%;
+    --ring: 0 85% 50%;
+    --glow-color: 0 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-xl;
+    box-shadow: 
+      0 4px 30px hsl(var(--primary) / 0.1),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-border {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.3),
+      inset 0 0 20px hsl(var(--primary) / 0.1);
+  }
+
+  .element-icon {
+    @apply relative;
+  }
+
+  .element-icon::after {
+    content: '';
+    @apply absolute inset-0 rounded-full opacity-50;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.4) 0%, transparent 70%);
+    filter: blur(10px);
+  }
+  /* Theme-aware gradient utilities */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .bg-gradient-primary-soft {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--accent) / 0.8));
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+  }
+
+  .bg-gradient-radial-primary {
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15) 0%, transparent 50%, hsl(var(--accent) / 0.1) 100%);
+  }
+
+  .text-theme-primary {
+    color: hsl(var(--primary));
+  }
+
+  .text-theme-accent {
+    color: hsl(var(--accent));
+  }
+
+  .border-theme-primary {
+    border-color: hsl(var(--primary));
+  }
+
+  .bg-theme-primary {
+    background-color: hsl(var(--primary));
+  }
+
+  .bg-theme-accent {
+    background-color: hsl(var(--accent));
+  }
+}
+
+@layer utilities {
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-dice-roll {
+    animation: dice-roll 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  .animate-dice-3d-roll {
+    animation: dice-3d-roll 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-dice-bounce {
+    animation: dice-bounce 0.6s ease-out 1.5s;
+  }
+
+  .animate-dice-shake {
+    animation: dice-shake 0.1s ease-in-out infinite;
+  }
+
+  .animate-number-spin {
+    animation: number-spin 0.1s linear infinite;
+  }
+
+  .animate-lightning {
+    animation: lightning 3s ease-in-out infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-visible {
+    backface-visibility: visible;
+  }
+
+  .clip-path-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  /* Flip Card Styles */
+  .flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    font-family: sans-serif;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card.flip-card-active .flip-card-inner,
+  .flip-card-inner.flip-card-flipped {
+    transform: rotateY(180deg) !important;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+
+  .flip-card-front {
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--primary) / 0.3);
+  }
+
+  .flip-card-back {
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--primary) / 0.3);
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front > *,
+  .flip-card-back > * {
+    pointer-events: auto;
+  }
+
+  .flip-card-front button,
+  .flip-card-back button,
+  .flip-card-front [role="tab"],
+  .flip-card-back [role="tab"] {
+    pointer-events: auto;
+  }
+
+  /* Attribute Number Styling */
+  .attribute-number {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 2px 4px rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: attribute-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes attribute-glow {
+    0% {
+      text-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 2px 4px rgba(0, 0, 0, 0.8);
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+    100% {
+      text-shadow: 
+        0 0 15px currentColor,
+        0 0 25px currentColor,
+        0 0 35px currentColor,
+        0 2px 4px rgba(0, 0, 0, 0.8);
+      filter: drop-shadow(0 0 12px currentColor);
+    }
+  }
+
+  /* Skill Dice Icon - Colorized by theme */
+  .skill-dice-icon {
+    filter: brightness(0) saturate(100%);
+    transition: filter 0.3s ease, transform 0.2s ease;
+    will-change: filter;
+  }
+
+  .skill-dice-icon:hover {
+    transform: scale(1.15);
+    filter: brightness(0) saturate(100%) drop-shadow(0 0 6px hsl(var(--primary)));
+  }
+
+  /* Theme-based dice coloring using CSS filters with primary color */
+  /* Fear - Blue */
+  .theme-fear .skill-dice-icon {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(100%) saturate(2000%) hue-rotate(190deg) brightness(1.1) drop-shadow(0 0 3px hsl(210, 100%, 50%));
+  }
+
+  /* Knowledge - Gold */
+  .theme-knowledge .skill-dice-icon {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(100%) saturate(2000%) hue-rotate(15deg) brightness(1.1) drop-shadow(0 0 3px hsl(45, 90%, 50%));
+  }
+
+  /* Death - Gray/White */
+  .theme-death .skill-dice-icon {
+    filter: brightness(0) saturate(100%) invert(100%) grayscale(0.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
+  }
+
+  /* Energy - Purple */
+  .theme-energy .skill-dice-icon {
+    filter: brightness(0) saturate(100%) invert(30%) sepia(100%) saturate(2000%) hue-rotate(270deg) brightness(1.1) drop-shadow(0 0 3px hsl(270, 100%, 60%));
+  }
+
+  /* Blood - Red */
+  .theme-blood .skill-dice-icon {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(2000%) hue-rotate(0deg) brightness(1.1) drop-shadow(0 0 3px hsl(0, 85%, 50%));
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes dice-roll {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dice-3d-roll {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateY(0) translateZ(0) scale(1);
+    filter: brightness(1) blur(0);
+  }
+  5% {
+    transform: rotateX(45deg) rotateY(30deg) rotateZ(10deg) translateY(-10px) translateZ(5px) scale(1.05);
+    filter: brightness(1.1) blur(0.5px);
+  }
+  10% {
+    transform: rotateX(90deg) rotateY(60deg) rotateZ(20deg) translateY(-20px) translateZ(10px) scale(1.1);
+    filter: brightness(1.2) blur(1px);
+  }
+  20% {
+    transform: rotateX(180deg) rotateY(120deg) rotateZ(40deg) translateY(-30px) translateZ(15px) scale(1.15);
+    filter: brightness(1.3) blur(1.5px);
+  }
+  30% {
+    transform: rotateX(270deg) rotateY(180deg) rotateZ(60deg) translateY(-35px) translateZ(20px) scale(1.2);
+    filter: brightness(1.4) blur(2px);
+  }
+  40% {
+    transform: rotateX(360deg) rotateY(240deg) rotateZ(80deg) translateY(-40px) translateZ(25px) scale(1.25);
+    filter: brightness(1.3) blur(2px);
+  }
+  50% {
+    transform: rotateX(450deg) rotateY(300deg) rotateZ(100deg) translateY(-35px) translateZ(20px) scale(1.2);
+    filter: brightness(1.2) blur(1.5px);
+  }
+  60% {
+    transform: rotateX(540deg) rotateY(360deg) rotateZ(120deg) translateY(-25px) translateZ(15px) scale(1.15);
+    filter: brightness(1.1) blur(1px);
+  }
+  70% {
+    transform: rotateX(630deg) rotateY(420deg) rotateZ(140deg) translateY(-15px) translateZ(10px) scale(1.1);
+    filter: brightness(1) blur(0.5px);
+  }
+  80% {
+    transform: rotateX(720deg) rotateY(480deg) rotateZ(160deg) translateY(-5px) translateZ(5px) scale(1.05);
+    filter: brightness(0.95) blur(0.5px);
+  }
+  90% {
+    transform: rotateX(780deg) rotateY(520deg) rotateZ(170deg) translateY(2px) translateZ(-2px) scale(1.02);
+    filter: brightness(0.9) blur(0);
+  }
+  95% {
+    transform: rotateX(720deg) rotateY(480deg) rotateZ(160deg) translateY(-1px) translateZ(0) scale(1);
+    filter: brightness(0.95) blur(0);
+  }
+  100% {
+    transform: rotateX(720deg) rotateY(480deg) rotateZ(160deg) translateY(0) translateZ(0) scale(1);
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes dice-bounce {
+  0% {
+    transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+  }
+  20% {
+    transform: translateY(-12px) scale(1.08) rotateX(5deg) rotateY(5deg);
+  }
+  40% {
+    transform: translateY(-6px) scale(1.04) rotateX(-3deg) rotateY(-3deg);
+  }
+  60% {
+    transform: translateY(-3px) scale(1.02) rotateX(2deg) rotateY(2deg);
+  }
+  80% {
+    transform: translateY(-1px) scale(1.01) rotateX(-1deg) rotateY(-1deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes dice-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes number-spin {
+  0% { content: '1'; }
+  25% { content: '5'; }
+  50% { content: '12'; }
+  75% { content: '20'; }
+  100% { content: '?'; }
+}
+
+@keyframes lightning {
+  0%, 90%, 100% {
+    opacity: 0;
+  }
+  92%, 94%, 96% {
+    opacity: 0.8;
+  }
+  93%, 95% {
+    opacity: 0;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}

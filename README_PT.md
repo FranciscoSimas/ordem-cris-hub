@@ -64,125 +64,28 @@ O OP-CRIS foi criado para facilitar a gestão de sessões de RPG, oferecendo fer
 - **Vercel** - Hospedagem e CI/CD
 - **GitHub** - Controle de versão
 
-## 🚀 Como Executar Localmente
-
-### Pré-requisitos
-- Node.js 18+ e npm
-- Conta no Supabase (para backend)
-
-### Instalação
-
-1. **Clone o repositório**
-```bash
-git clone https://github.com/FranciscoSimas/ordem-cris-hub.git
-cd ordem-cris-hub
-```
-
-2. **Instale as dependências**
-```bash
-npm install
-```
-
-3. **Configure as variáveis de ambiente**
-Crie um arquivo `.env` na raiz do projeto:
-```env
-VITE_SUPABASE_URL=sua_url_do_supabase
-VITE_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
-```
-
-4. **Inicie o servidor de desenvolvimento**
-```bash
-npm run dev
-```
-
-O projeto estará disponível em `http://localhost:5173`
-
-## 📦 Scripts Disponíveis
-
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Cria build de produção
-- `npm run preview` - Preview do build de produção
-- `npm run lint` - Executa o linter
 
 ## 🎨 Estrutura do Projeto
 
 ```
 ordem-cris-hub/
+├── api/                 # Vercel functions (CRIS, Discord)
 ├── public/
-│   └── backgrounds/      # Imagens de fundo temáticas
+│   ├── backgrounds/     # Fundos temáticos
+│   └── symbols/         # Ícones dos elementos
 ├── src/
-│   ├── components/       # Componentes React
-│   │   ├── dice/        # Componentes de dados 3D
-│   │   └── ...
-│   ├── contexts/        # Context API (Theme, etc)
-│   ├── integrations/    # Integrações (Supabase)
-│   ├── lib/            # Utilitários
-│   ├── pages/          # Páginas principais
-│   └── index.css       # Estilos globais e temas
+│   ├── components/      # UI da app (dice/, ui/, secções)
+│   ├── contexts/        # Theme, Discord
+│   ├── hooks/
+│   ├── integrations/    # Supabase client
+│   ├── lib/             # utils + guest/localStorage
+│   ├── pages/           # Index, Auth
+│   └── index.css
+├── supabase/            # Scripts SQL / setup
 ├── package.json
 └── vite.config.ts
 ```
 
-## 🔧 Configuração do Supabase
-
-### Variáveis de Ambiente
-
-**IMPORTANTE**: Configure as variáveis de ambiente no Vercel:
-
-1. Acesse [Vercel Dashboard](https://vercel.com/dashboard) > Seu Projeto > Settings > Environment Variables
-2. Adicione:
-   - `VITE_SUPABASE_URL` = `https://YOUR_PROJECT_ID.supabase.co`
-   - `VITE_SUPABASE_PUBLISHABLE_KEY` = Sua chave `anon public` do Supabase
-
-⚠️ **A URL deve ser**: `https://xxxxx.supabase.co` (NÃO use a URL do dashboard!)
-
-Veja `VERCEL_ENV_SETUP.md` para instruções detalhadas.
-
-### Tabelas Necessárias
-
-O projeto requer as seguintes tabelas no Supabase:
-
-1. **weapons** - Armazenar armas dos jogadores
-2. **items** - Armazenar itens dos jogadores
-3. **characters** - Armazenar personagens/NPCs
-
-Todas devem ter:
-- `user_id` (UUID, referência ao auth.users)
-- Campos específicos conforme o tipo de dado
-
-## 🌐 Deploy
-
-O projeto está configurado para deploy automático no **Vercel**:
-
-1. Conecte seu repositório GitHub ao Vercel
-2. Configure as variáveis de ambiente no painel do Vercel
-3. O deploy acontece automaticamente a cada push para `main`
-
-## 📝 Notas Importantes
-
-- **Imagens de Fundo**: As imagens de fundo devem estar em `public/backgrounds/` com os nomes:
-  - `fear-bg.png`
-  - `knowledge-bg.png`
-  - `death-bg.png`
-  - `energy-bg.png`
-  - `blood-bg.png`
-
-- **Resolução Recomendada**: 1920x1080px para as imagens de fundo
-
-- **Backup Automático**: Use o script `backup.bat` (Windows) para fazer commit e push automático
-
-## 🎮 Como Usar
-
-1. **Selecionar Tema**: Use o seletor de temas no canto superior direito
-2. **Rolar Dados**: 
-   - Escolha o tipo de dado (d4, d6, d8, d10, d12, d20, d100)
-   - Defina a quantidade de dados
-   - Adicione modificadores se necessário
-   - Clique em "Rolar"
-3. **Gerenciar Inventário**: 
-   - Acesse a aba "Inventário"
-   - Adicione, edite ou remova armas e itens
-   - Os dados são salvos automaticamente
 
 ## 🤝 Contribuindo
 
@@ -194,7 +97,7 @@ Este projeto é de uso pessoal e educacional.
 
 ## 🔗 Links
 
-- **Deploy**: [Link do Vercel]
+- **Deploy**: ordem-cris-hub.vercel.app
 - **Repositório**: https://github.com/FranciscoSimas/ordem-cris-hub
 
 ---

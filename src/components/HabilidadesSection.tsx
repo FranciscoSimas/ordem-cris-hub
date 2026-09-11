@@ -57,10 +57,6 @@ export function HabilidadesSection() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    fetchAbilities();
-  }, [fetchAbilities]);
-
   const fetchAbilities = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -92,6 +88,10 @@ export function HabilidadesSection() {
       setIsLoading(false);
     }
   }, [toast]);
+
+  useEffect(() => {
+    fetchAbilities();
+  }, [fetchAbilities]);
 
   const handleImageUpload = async (file: File) => {
     if (!file) return;

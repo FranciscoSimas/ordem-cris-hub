@@ -1,3 +1,5 @@
+# **Last update:** 15/12/2025
+
 # 🎲 OP-CRIS - Ordem Paranormal: Resource System
 
 **OP-CRIS** (Ordem Paranormal - Sistema de Recursos) is a full-stack web application developed to serve as a visual and functional support tool for Game Masters and Players of the **Ordem Paranormal** RPG.
